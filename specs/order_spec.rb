@@ -76,34 +76,77 @@ describe "Order Wave 1" do
       result.must_equal true
     end
   end
-end
 
-# TODO: change 'xdescribe' to 'describe' to run these tests
-xdescribe "Order Wave 2" do
-  describe "Order.all" do
-    it "Returns an array of all orders" do
-      # TODO: Your test code here!
-      # Useful checks might include:
-      #   - Order.all returns an array
-      #   - Everything in the array is an Order
-      #   - The number of orders is correct
-      #   - The ID and products of the first and last
-      #       orders match what's in the CSV file
-      # Feel free to split this into multiple tests if needed
+  describe "#remove_product" do
+    it "Decreases the number of products" do
+      products = { "banana" => 1.99, "cracker" => 3.00 }
+      before_count = products.count
+      order = Grocery::Order.new(1337, products)
+
+      order.remove_product("banana")
+      expected_count = before_count - 1
+      order.products.count.must_equal expected_count
+    end
+
+    it "Is subtracted from the collection of products" do
+      products = { "banana" => 1.99, "cracker" => 3.00 }
+      order = Grocery::Order.new(1337, products)
+
+      order.remove_product("banana")
+      order.products.include?("banana").must_equal false
+    end
+
+    it "Returns false if the product is not present" do
+      products = { "banana" => 1.99, "cracker" => 3.00 }
+
+      order = Grocery::Order.new(1337, products)
+      before_total = order.total
+
+      result = order.remove_product("apple")
+      after_total = order.total
+
+      result.must_equal false
+      before_total.must_equal after_total
+    end
+
+    it "Returns true if the product is removed" do
+      products = { "banana" => 1.99, "cracker" => 3.00 }
+      order = Grocery::Order.new(1337, products)
+
+      result = order.remove_product("banana")
+      result.must_equal true
     end
   end
-
-  describe "Order.find" do
-    it "Can find the first order from the CSV" do
-      # TODO: Your test code here!
-    end
-
-    it "Can find the last order from the CSV" do
-      # TODO: Your test code here!
-    end
-
-    it "Raises an error for an order that doesn't exist" do
-      # TODO: Your test code here!
-    end
-  end
 end
+
+
+# WAVE 2
+# # TODO: change 'xdescribe' to 'describe' to run these tests
+# describe "Order Wave 2" do
+#   describe "Order.all" do
+#     it "Returns an array of all orders" do
+#       # TODO: Your test code here!
+#       # Useful checks might include:
+#       #   - Order.all returns an array
+#       #   - Everything in the array is an Order
+#       #   - The number of orders is correct
+#       #   - The ID and products of the first and last
+#       #       orders match what's in the CSV file
+#       # Feel free to split this into multiple tests if needed
+#     end
+#   end
+#
+#   describe "Order.find" do
+#     it "Can find the first order from the CSV" do
+#       # TODO: Your test code here!
+#     end
+#
+#     it "Can find the last order from the CSV" do
+#       # TODO: Your test code here!
+#     end
+#
+#     it "Raises an error for an order that doesn't exist" do
+#       # TODO: Your test code here!
+#     end
+#   end
+# end
