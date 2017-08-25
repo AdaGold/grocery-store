@@ -160,7 +160,7 @@ describe "Order Wave 2" do
     end
 
     it "Raises an error for an order that doesn't exist" do
-      Grocery::Order.find(101).must_equal false
+      expect(proc{Grocery::Order.find(101)}).must_raise ArgumentError
     end
   end
 end

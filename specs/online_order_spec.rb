@@ -67,16 +67,20 @@ describe "OnlineOrder" do
     it "Returns an array of all online orders" do
       # OnlineOrder.all returns an array
       Grocery::OnlineOrder.all.must_be_kind_of Array
+
       # Everything in the array is an Order
       Grocery::OnlineOrder.all.each do |order|
         order.must_be_kind_of Grocery::Order
       end
+
       # The number of orders is correct
       Grocery::OnlineOrder.all.length.must_equal 100
+
       # The customer is present
       Grocery::OnlineOrder.all.each do |order|
         order.customer.must_be_instance_of Grocery::Customer
       end
+
       # The status is present
       Grocery::OnlineOrder.all.each do |order|
         order.shipping.wont_be_nil
@@ -87,12 +91,14 @@ describe "OnlineOrder" do
   describe "OnlineOrder.find_by_customer" do
     it "Returns an array of online orders for a specific customer ID" do
       specific_orders = Grocery::OnlineOrder.find_by_customer(25)
+
       # Must be an Array
       specific_orders.must_be_kind_of Array
+
       # Only 1 unique number for all orders of specific customer ID
       order_numbers = []
       specific_orders.each do |order|
-        order_numbers << order.customer.customer
+        order_numbers << order.customer.id
       end
       order_numbers.uniq.length.must_equal 1
     end

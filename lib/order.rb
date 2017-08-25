@@ -66,7 +66,7 @@ module Grocery
       if id >= 1 && id <= 100
         return @@orders[id-1]
       else
-        return false
+        raise ArgumentError.new("Not a valid order ID!")
       end
     end #--- end self.find
 

@@ -1,7 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
-
 require_relative '../lib/customer'
 
 describe "Customer" do
@@ -17,9 +16,9 @@ describe "Customer" do
       }
       person = Grocery::Customer.new(id, email, address)
 
-      person.must_respond_to :customer
-      person.customer.must_equal id
-      person.customer.must_be_kind_of Integer
+      person.must_respond_to :id
+      person.id.must_equal id
+      person.id.must_be_kind_of Integer
 
       person.must_respond_to :email
       person.email.must_equal email
@@ -58,7 +57,7 @@ describe "Customer" do
         state: "LA",
         zipcode: "98872-9105"
       }
-      Grocery::Customer.find(1).customer.must_equal customer_id
+      Grocery::Customer.find(1).id.must_equal customer_id
       Grocery::Customer.find(1).email.must_equal customer_email
       Grocery::Customer.find(1).address.must_equal customer_address
     end
@@ -72,13 +71,13 @@ describe "Customer" do
         state: "DE",
         zipcode: "64529-2614"
       }
-      Grocery::Customer.find(35).customer.must_equal customer_id
+      Grocery::Customer.find(35).id.must_equal customer_id
       Grocery::Customer.find(35).email.must_equal customer_email
       Grocery::Customer.find(35).address.must_equal customer_address
     end
 
     it "Raises an error for a customer that doesn't exist" do
-      Grocery::Customer.find(36).must_equal false
+      expect(proc{Grocery::Customer.find(36)}).must_raise ArgumentError
     end
   end
 end

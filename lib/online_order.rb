@@ -1,5 +1,4 @@
 require "csv"
-
 require_relative "order"
 require_relative "customer"
 
@@ -74,7 +73,7 @@ module Grocery
     def self.find_by_customer(customer_id)
       related_orders = []
       OnlineOrder.all.each do |order|
-        if order.customer.customer == customer_id
+        if order.customer.id == customer_id
           related_orders << order
         end
       end
