@@ -49,9 +49,9 @@ describe "OnlineOrder" do
       order2 = Grocery::OnlineOrder.new(12, {"Bran" => 14.73}, 23, :shipped)
       order3 = Grocery::OnlineOrder.new(13, {"Bran" => 14.74}, 24, :completed)
 
-      proc {order1.add_product("banana", 3.22)}.must_raise ArgumentError
-      proc {order2.add_product("banana", 3.22)}.must_raise ArgumentError
-      proc {order3.add_product("banana", 3.22)}.must_raise ArgumentError
+      proc{order1.add_product("banana", 3.22)}.must_raise ArgumentError
+      proc{order2.add_product("banana", 3.22)}.must_raise ArgumentError
+      proc{order3.add_product("banana", 3.22)}.must_raise ArgumentError
     end
 
     it "Permits action for pending and paid statuses" do
