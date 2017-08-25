@@ -2,40 +2,83 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 
-# TODO: uncomment the next line once you start wave 3
-# require_relative '../lib/customer'
+require_relative '../lib/customer'
 
-xdescribe "Customer" do
+describe "Customer" do
   describe "#initialize" do
     it "Takes an ID, email and address info" do
-      # TODO: Your test code here!
+      id = 33
+      email = "heythere@friend.com"
+      address = {
+        street: "444 Dango Lane",
+        city: "Waterbergerson",
+        state: "CA",
+        zipcode: "199999-0234"
+      }
+      person = Grocery::Customer.new(id, email, address)
+
+      person.must_respond_to :customer
+      person.customer.must_equal id
+      person.customer.must_be_kind_of Integer
+
+      person.must_respond_to :email
+      person.email.must_equal email
+      person.email.must_be_kind_of String
+
+      person.must_respond_to :address
+      person.address.must_equal address
+      person.address.must_be_kind_of Hash
     end
   end
 
   describe "Customer.all" do
     it "Returns an array of all customers" do
-      # TODO: Your test code here!
-      # Useful checks might include:
-      #   - Customer.all returns an array
-      #   - Everything in the array is a Customer
-      #   - The number of orders is correct
-      #   - The ID, email address of the first and last
-      #       customer match what's in the CSV file
-      # Feel free to split this into multiple tests if needed
+      # Check if Order.all returns an array
+      all_people = Grocery::Customer.all
+      all_people.must_be_kind_of Array
+
+      # Check if each element in the array is a Customer
+      all_people.each do |person|
+        person.must_be_instance_of Grocery::Customer
+      end
+
+      # Check if number of Customers is same as CSV file row count
+      length = Grocery::Customer.all.length
+      length.must_equal 35
     end
   end
 
   describe "Customer.find" do
     it "Can find the first customer from the CSV" do
-      # TODO: Your test code here!
+      customer_id = 1
+      customer_email = "leonard.rogahn@hagenes.org"
+      customer_address = {
+        street: "71596 Eden Route",
+        city: "Connellymouth",
+        state: "LA",
+        zipcode: "98872-9105"
+      }
+      Grocery::Customer.find(1).customer.must_equal customer_id
+      Grocery::Customer.find(1).email.must_equal customer_email
+      Grocery::Customer.find(1).address.must_equal customer_address
     end
 
     it "Can find the last customer from the CSV" do
-      # TODO: Your test code here!
+      customer_id = 35
+      customer_email = "rogers_koelpin@oconnell.org"
+      customer_address = {
+        street: "7513 Kaylee Summit",
+        city: "Uptonhaven",
+        state: "DE",
+        zipcode: "64529-2614"
+      }
+      Grocery::Customer.find(35).customer.must_equal customer_id
+      Grocery::Customer.find(35).email.must_equal customer_email
+      Grocery::Customer.find(35).address.must_equal customer_address
     end
 
     it "Raises an error for a customer that doesn't exist" do
-      # TODO: Your test code here!
+      Grocery::Customer.find(36).must_equal false
     end
   end
 end

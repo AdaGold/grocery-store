@@ -140,7 +140,6 @@ describe "Order Wave 2" do
 
   describe "Order.find" do
     it "Can find the first order from the CSV" do
-      Grocery::Order.all
       first_products = [
         {"Slivered Almonds"=>22.88},
         {"Wholewheat flour" => 1.93},
@@ -151,7 +150,6 @@ describe "Order Wave 2" do
     end
 
     it "Can find the last order from the CSV" do
-      Grocery::Order.all
       last_products = [
         {"Allspice" => 64.74},
         {"Bran" => 14.72},
@@ -162,7 +160,7 @@ describe "Order Wave 2" do
     end
 
     it "Raises an error for an order that doesn't exist" do
-      Grocery::Order.find(102).must_equal false
+      Grocery::Order.find(101).must_equal false
     end
   end
 end

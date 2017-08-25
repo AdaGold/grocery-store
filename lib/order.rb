@@ -1,5 +1,4 @@
 require "csv"
-require "awesome_print"
 
 module Grocery
   class Order
@@ -44,16 +43,16 @@ module Grocery
     def self.all
       if @@orders.length == 0
         CSV.open("support/orders.csv", 'r').each do |line|
-          @id = line[0].to_i
-          @products = []
+          id = line[0].to_i
+          products = []
           product_list = line[1].split(";")
           product_list.each do |item|
             separate = item.split(":")
             product_hash = {}
             product_hash[separate[0]] = separate[1].to_f
-            @products << product_hash
+            products << product_hash
           end #--- end loop to add hash of products into i.variable
-          new_order = Order.new(@id, @products)
+          new_order = Order.new(id, products)
           @@orders << new_order
         end #--- end loop of CSV file lines
         return @@orders
@@ -63,6 +62,7 @@ module Grocery
     end #--- end self.all
 
     def self.find(id)
+      Order.all
       if id >= 1 && id <= 100
         return @@orders[id-1]
       else
