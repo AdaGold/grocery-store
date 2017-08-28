@@ -10,8 +10,8 @@ This project will allow you to explore object-oriented design as well as a few o
 1. Clone the forked repo: `$ git clone [YOUR FORKED REPO URL]`
 1. `cd` into the dir created `$ cd grocery-store`
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.  
-  If it is **correct** it will include "Ada-C8"  
-  If it is **incorrect** it will include "AdaGold"  
+  If it is **correct** it will include your username  
+  If it is **incorrect** it will include "AdaGold" or "Ada-C8"
 1. Run `gem install minitest-skip` to install an extra gem for testing (more on what this actually does later).
 
 ### Testing
@@ -62,6 +62,7 @@ Make sure to write tests for any optionals you implement!
 - Add a `remove_product` method to the `Order` class which will take in one parameter, a product name, and remove the product from the collection
     - It should return `true` if the item was successfully remove and `false` if it was not
 
+<!-- 
 ## Wave 2
 
 ### Learning Goals
@@ -169,3 +170,4 @@ The data for the online order CSV file consists of:
 | Products  | String  | The list of products in the following format: `name:price;nextname:nextprice`
 | Customer ID | Integer | A unique identifier corresponding to a Customer
 | Status | String | A string representing the order's current status
+-->

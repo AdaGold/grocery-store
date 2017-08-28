@@ -1,41 +1,68 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
+require_relative '../lib/customer'
 
-# TODO: uncomment the next line once you start wave 3
-# require_relative '../lib/customer'
+describe "Customer" do
 
-xdescribe "Customer" do
+  before do
+    @customers = Grocery::Customer.all
+  end
+
   describe "#initialize" do
+
     it "Takes an ID, email and address info" do
-      # TODO: Your test code here!
+      @customers.first.id.must_equal 1
+      @customers.last.id.must_equal 35
+      @customers.first.email.must_equal "leonard.rogahn@hagenes.org"
+      @customers.last.email.must_equal "rogers_koelpin@oconnell.org"
+      @customers.first.address.must_equal ["71596 Eden Route", "Connellymouth", "LA", "98872-9105"]
+      @customers.last.address.must_equal ["7513 Kaylee Summit", "Uptonhaven", "DE", "64529-2614"]
     end
-  end
 
-  describe "Customer.all" do
-    it "Returns an array of all customers" do
-      # TODO: Your test code here!
-      # Useful checks might include:
-      #   - Customer.all returns an array
-      #   - Everything in the array is a Customer
-      #   - The number of orders is correct
-      #   - The ID, email address of the first and last
-      #       customer match what's in the CSV file
-      # Feel free to split this into multiple tests if needed
+    describe "Customer.all" do
+
+      it "Returns an array of all customers" do
+        @customers.must_be_kind_of Array
+      end
+
+      it "Customer.all returns an array" do
+        Grocery::Customer.all.must_be_kind_of Array
+      end
+
+      it " Everything in the array is a Customer" do
+        @customers.must_be_kind_of Array
+
+        @customers.each do |customer|
+          customer.must_be_kind_of Grocery::Customer
+        end
+      end
     end
-  end
+#
+    describe "Customer.find" do
 
-  describe "Customer.find" do
-    it "Can find the first customer from the CSV" do
-      # TODO: Your test code here!
+      before do
+        @customers = Grocery::Customer.all
+      end
+
+      it "Can find the first customer from the CSV" do
+        csv_email = []
+        CSV.open("../support/customers.csv", 'r').each do |line|
+          csv_email << line[1]
+        end
+
+        csv_email.include?(Grocery::Customer.find(1).email).must_equal true
+        # Grocery::Customer.find(1).email.must_equal csv_email.first
+      end
     end
 
     it "Can find the last customer from the CSV" do
-      # TODO: Your test code here!
+      Grocery::Customer.find(35).email.must_equal "rogers_koelpin@oconnell.org"
     end
 
     it "Raises an error for a customer that doesn't exist" do
-      # TODO: Your test code here!
+      proc {Grocery::Customer.find(123)}.must_raise ArgumentError
     end
+
   end
 end
