@@ -69,7 +69,7 @@ Make sure to write tests for any optionals you implement!
 
 - Add a `remove_product` method to the `Order` class which will take in one parameter, a product name, and remove the product from the collection
     - It should return `true` if the item was successfully remove and `false` if it was not
-
+<!--
 ## Wave 2
 
 ### Learning Goals
@@ -177,6 +177,7 @@ The data for the online order CSV file consists of:
 | Products  | String  | The list of products in the following format: `name:price;nextname:nextprice`
 | Customer ID | Integer | A unique identifier corresponding to a Customer
 | Status | String | A string representing the order's current status
+-->
 
 ## What We Are Looking For
 Check out the [feedback template](feedback.md) to see what instructors will be looking for.
