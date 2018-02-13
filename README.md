@@ -4,7 +4,7 @@ Let's simulate a grocery store system! We want to be able to keep track of the o
 
 This project will allow you to explore object-oriented design as well as a few other new topics. This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
 
-The project is due before class on Monday February 19th
+The project is due before class on **Monday February 19th**
 
 ## Learning Goals
 You should demonstrate an ability to:
