@@ -4,7 +4,7 @@ Let's simulate a grocery store system! We want to be able to keep track of the o
 
 This project will allow you to explore object-oriented design as well as a few other new topics. This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
 
-The project is due before class on **Monday February 19th**
+The project is due before class on **Tuesday February 20th**
 
 ## Learning Goals
 You should demonstrate an ability to:
@@ -21,7 +21,7 @@ You should demonstrate an ability to:
 1. `cd` into the dir created `$ cd grocery-store`
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.  
   If it is **correct** it will include your username
-  If it is **incorrect** it will include "AdaGold" or "Ada-C8" 
+  If it is **incorrect** it will include "AdaGold" or "Ada-CX" 
 1. Run `gem install minitest-skip` to install an extra gem for testing (more on what this actually does later).
 
 ### Testing
