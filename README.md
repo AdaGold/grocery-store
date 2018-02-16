@@ -104,7 +104,6 @@ The data, in order in the CSV, consists of:
 | ID       | Integer  | A unique identifier for that Order
 | Products  | String  | The list of products in the following format: `name:price;nextname:nextprice`
 
-<!--
 
 ## Wave 3
 ### Learning Goals
@@ -180,6 +179,7 @@ The data for the online order CSV file consists of:
 | Products  | String  | The list of products in the following format: `name:price;nextname:nextprice`
 | Customer ID | Integer | A unique identifier corresponding to a Customer
 | Status | String | A string representing the order's current status
+<!--
 -->
 
 ## What We Are Looking For
