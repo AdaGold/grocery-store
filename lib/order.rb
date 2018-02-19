@@ -2,7 +2,7 @@ require 'csv'
 require 'pry'
 require 'awesome_print'
 
-FILE_NAME = "support/orders.csv"
+FILE_NAME = "../support/orders.csv"
 module Grocery
   class Order
     attr_reader :id, :products
@@ -54,4 +54,5 @@ module Grocery
 end
 
 
+puts "practice"
 binding.pry

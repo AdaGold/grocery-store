@@ -93,7 +93,12 @@ describe "Order Wave 2" do
       Grocery::Order.all[0].products.must_equal products
 
     end
-    xit "Returns accurate information about the last order" do
+    it "Returns accurate information about the last order" do
+
+      Grocery::Order.all.last.id.must_equal 100
+
+      products = {"Allspice" => 64.74, "Bran" => 14.72, "UnbleachedFlour" => 80.59}
+      Grocery::Order.all.last.products.must_equal products
 
 
     end
