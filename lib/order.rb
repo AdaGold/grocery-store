@@ -53,6 +53,4 @@ module Grocery
   end
 end
 
-
-puts "practice"
 binding.pry
