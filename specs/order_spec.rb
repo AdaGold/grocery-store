@@ -78,19 +78,28 @@ describe "Order Wave 1" do
   end
 end
 
-# TODO: change 'xdescribe' to 'describe' to run these tests
-xdescribe "Order Wave 2" do
+describe "Order Wave 2" do
   describe "Order.all" do
     it "Returns an array of all orders" do
-      # TODO: Your test code here!
+      Grocery::Order.all.must_be_kind_of Array
     end
 
     it "Returns accurate information about the first order" do
-      # TODO: Your test code here!
-    end
 
+      Grocery::Order.all[0].id.must_equal 1
+
+      products = {"Slivered Almonds" => 22.88, "Wholewheat flour" => 1.93, "Grape Seed Oil" => 74.9}
+      Grocery::Order.all[0].products.must_equal products
+
+    end
     it "Returns accurate information about the last order" do
-      # TODO: Your test code here!
+
+      Grocery::Order.all.last.id.must_equal 100
+
+      products = {"Allspice" => 64.74, "Bran" => 14.72, "UnbleachedFlour" => 80.59}
+      Grocery::Order.all.last.products.must_equal products
+
+
     end
   end
 

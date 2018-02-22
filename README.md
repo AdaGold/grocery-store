@@ -4,6 +4,8 @@ Let's simulate a grocery store system! We want to be able to keep track of the o
 
 This project will allow you to explore object-oriented design as well as a few other new topics. This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
 
+The project is due before class on **Tuesday February 20th**
+
 ## Learning Goals
 You should demonstrate an ability to:
 - Practice Test-Driven-Development
@@ -19,7 +21,7 @@ You should demonstrate an ability to:
 1. `cd` into the dir created `$ cd grocery-store`
 1. Run `git remote -v` to verify the folder you are in corresponds to the fork you have created.  
   If it is **correct** it will include your username
-  If it is **incorrect** it will include "AdaGold" or "Ada-C8" 
+  If it is **incorrect** it will include "AdaGold" or "Ada-CX" 
 1. Run `gem install minitest-skip` to install an extra gem for testing (more on what this actually does later).
 
 ### Testing
@@ -102,6 +104,7 @@ The data, in order in the CSV, consists of:
 | ID       | Integer  | A unique identifier for that Order
 | Products  | String  | The list of products in the following format: `name:price;nextname:nextprice`
 
+<!--
 
 ## Wave 3
 ### Learning Goals
@@ -177,6 +180,7 @@ The data for the online order CSV file consists of:
 | Products  | String  | The list of products in the following format: `name:price;nextname:nextprice`
 | Customer ID | Integer | A unique identifier corresponding to a Customer
 | Status | String | A string representing the order's current status
+-->
 
 ## What We Are Looking For
 Check out the [feedback template](feedback.md) to see what instructors will be looking for.
