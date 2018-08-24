@@ -2,6 +2,8 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 
+require 'pry'
+
 require_relative '../lib/customer'
 require_relative '../lib/order'
 
@@ -22,6 +24,8 @@ describe "Order Wave 1" do
     it "Takes an ID, collection of products, customer, and fulfillment_status" do
       id = 1337
       fulfillment_status = :shipped
+      # binding.pry
+
       order = Order.new(id, {}, customer, fulfillment_status)
 
       expect(order).must_respond_to :id
@@ -116,11 +120,11 @@ end
 # TODO: change 'xdescribe' to 'describe' to run these tests
 describe "Order Wave 2" do
   describe "Order.all" do
-    it "Returns an array of all orders" do
+    xit "Returns an array of all orders" do
       # TODO: Your test code here!
     end
 
-    it "Returns accurate information about the first order" do
+    xit "Returns accurate information about the first order" do
       id = 1
       products = {
         "Lobster" => 17.18,
@@ -140,21 +144,21 @@ describe "Order Wave 2" do
       expect(order.fulfillment_status).must_equal fulfillment_status
     end
 
-    it "Returns accurate information about the last order" do
+    xit "Returns accurate information about the last order" do
       # TODO: Your test code here!
     end
   end
 
   describe "Order.find" do
-    it "Can find the first order from the CSV" do
+    xit "Can find the first order from the CSV" do
       # TODO: Your test code here!
     end
 
-    it "Can find the last order from the CSV" do
+    xit "Can find the last order from the CSV" do
       # TODO: Your test code here!
     end
 
-    it "Returns nil for an order that doesn't exist" do
+    xit "Returns nil for an order that doesn't exist" do
       # TODO: Your test code here!
     end
   end
