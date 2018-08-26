@@ -120,11 +120,11 @@ end
 # TODO: change 'xdescribe' to 'describe' to run these tests
 describe "Order Wave 2" do
   describe "Order.all" do
-    xit "Returns an array of all orders" do
+    it "Returns an array of all orders" do
       # TODO: Your test code here!
     end
 
-    xit "Returns accurate information about the first order" do
+    it "Returns accurate information about the first order" do
       id = 1
       products = {
         "Lobster" => 17.18,
@@ -144,8 +144,16 @@ describe "Order Wave 2" do
       expect(order.fulfillment_status).must_equal fulfillment_status
     end
 
-    xit "Returns accurate information about the last order" do
-      # TODO: Your test code here!
+    it "Returns accurate information about the last order" do
+      id = 100
+      products = {
+        "Amaranth" => 83.81,
+        "Cheddar" => 5.63,
+      }
+      customer_id = 20
+      fulfillment_status = :pending
+
+      order = Order.all.last
     end
   end
 
