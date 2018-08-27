@@ -2,7 +2,7 @@
 
 Let's simulate a grocery store system! We want to be able to keep track of the orders that folks make.
 
-This project will allow you to explore object-oriented design as well as a few other new topics. This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project.
+This project will allow you to explore object-oriented design as well as a few other new topics. This is an individual, [stage 1](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) project, and is due before class on Monday August 27th.
 
 ## Learning Goals
 

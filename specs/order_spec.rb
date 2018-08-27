@@ -2,6 +2,8 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/skip_dsl'
 
+require 'pry'
+
 require_relative '../lib/customer'
 require_relative '../lib/order'
 
@@ -22,6 +24,8 @@ describe "Order Wave 1" do
     it "Takes an ID, collection of products, customer, and fulfillment_status" do
       id = 1337
       fulfillment_status = :shipped
+      # binding.pry
+
       order = Order.new(id, {}, customer, fulfillment_status)
 
       expect(order).must_respond_to :id
@@ -117,7 +121,11 @@ end
 describe "Order Wave 2" do
   describe "Order.all" do
     it "Returns an array of all orders" do
-      # TODO: Your test code here!
+      orders = Order.all
+      orders.each do |order|
+        expect(order).must_be_kind_of Order
+      end
+      expect(orders.length).must_equal 100
     end
 
     it "Returns accurate information about the first order" do
@@ -141,21 +149,34 @@ describe "Order Wave 2" do
     end
 
     it "Returns accurate information about the last order" do
-      # TODO: Your test code here!
+      id = 100
+      products = {
+        "Amaranth" => 83.81,
+        "Cheddar" => 5.63,
+      }
+      customer_id = 20
+      fulfillment_status = :pending
+
+      order = Order.all.last
     end
   end
 
   describe "Order.find" do
     it "Can find the first order from the CSV" do
-      # TODO: Your test code here!
+      first_order = Order.find(1)
+      expect(first_order.id).must_equal 1
+      expect(first_order).must_be_kind_of Order
     end
 
     it "Can find the last order from the CSV" do
-      # TODO: Your test code here!
+      last_order = Order.find(100)
+      expect(last_order.id).must_equal 100
+      expect(last_order).must_be_kind_of Order
     end
 
     it "Returns nil for an order that doesn't exist" do
-      # TODO: Your test code here!
+      order = Order.find(189993939)
+      expect(order).must_equal nil
     end
   end
 end
