@@ -91,7 +91,7 @@ Make sure to write tests for any optionals you implement!
 ### Wave 2
 
 #### Wave 2 Goals
-- Create and use instance methods
+- Create and use class methods
 - Use a CSV file for loading data
 - Create your own tests to verify method correctness
 
