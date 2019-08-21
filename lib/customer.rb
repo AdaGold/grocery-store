@@ -8,7 +8,7 @@ class Customer
     @address = address
   end
   
-  
+  # create an address method with a hash? 
   
   
   

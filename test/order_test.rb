@@ -8,7 +8,7 @@ require_relative '../lib/order'
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 # TODO: change 'xdescribe' to 'describe' to run these tests
-xdescribe "Order Wave 1" do
+describe "Order Wave 1" do
   let(:customer) do
     address = {
       street: "123 Main",
@@ -41,6 +41,7 @@ xdescribe "Order Wave 1" do
     it "Accepts all legal statuses" do
       valid_statuses = %i[pending paid processing shipped complete]
       
+      # loops thru statuses, checks if Order object.fulfillment_status matches an item in the status array
       valid_statuses.each do |fulfillment_status|
         order = Order.new(1, {}, customer, fulfillment_status)
         expect(order.fulfillment_status).must_equal fulfillment_status
@@ -62,7 +63,8 @@ xdescribe "Order Wave 1" do
     end
   end
   
-  describe "#total" do
+  # TODO: change 'xdescribe' to 'describe' to run these tests
+  xdescribe "#total" do
     it "Returns the total from the collection of products" do
       products = { "banana" => 1.99, "cracker" => 3.00 }
       order = Order.new(1337, products, customer)
@@ -79,7 +81,8 @@ xdescribe "Order Wave 1" do
     end
   end
   
-  describe "#add_product" do
+  # TODO: change 'xdescribe' to 'describe' to run these tests
+  xdescribe "#add_product" do
     it "Increases the number of products" do
       products = { "banana" => 1.99, "cracker" => 3.00 }
       before_count = products.count
