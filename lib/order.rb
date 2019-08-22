@@ -6,7 +6,7 @@ class Order
   
   def initialize(id, products, customer, fulfillment_status = :pending)
     @id = id
-    @products = Hash.new
+    @products = products
     @customer = customer #replaced Customer.new(id, email, address) w/ customer and 1 test passed
     @fulfillment_status = fulfillment_status
     verify_order_status(@fulfillment_status)
@@ -22,5 +22,27 @@ class Order
     end
   end 
   
+  # calculate the total cost of an order 
+  # use the products hash to calculate price 
+  def total
+    products.values.sum 
+  end 
+  
+  # create method to add a product to the product hash
+  # 2 parameters product_name, product_price 
+  # raise argument error if no product with that name is found
+  def add_product(product_name, product_price)
+    if products.key?(product_name)
+      raise ArgumentError.new("Product already exists.")
+    end
+    
+    products[product_name] = product_price
+  end
+  
   
 end
+
+
+order = Order.new(1, { "banana" => 1.99, "cracker" => 3.00 }, {})
+
+puts order.products
