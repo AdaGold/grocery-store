@@ -69,7 +69,7 @@ describe "Order Wave 1" do
       products = { "banana" => 1.99, "cracker" => 3.00 }
       order = Order.new(1337, products, customer)
       
-      expected_total = 4.99
+      expected_total = 5.36
       
       expect(order.total).must_equal expected_total
     end

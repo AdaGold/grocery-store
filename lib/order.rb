@@ -22,11 +22,20 @@ class Order
     end
   end 
   
-  # calculate the total cost of an order 
-  # use the products hash to calculate price 
+  # calculate the total cost of an order and
+  
   def total
-    products.values.sum 
+    sum = 0
+    values = products.values
+    values.each do |value|
+      tax_percentage = value * 0.075
+      value = tax_percentage + value 
+      sum = sum + value
+    end 
+    return sum.round(2)
   end 
+  
+  
   
   # create method to add a product to the product hash
   # 2 parameters product_name, product_price 
@@ -35,14 +44,8 @@ class Order
     if products.key?(product_name)
       raise ArgumentError.new("Product already exists.")
     end
-    
     products[product_name] = product_price
   end
   
-  
-end
+end 
 
-
-order = Order.new(1, { "banana" => 1.99, "cracker" => 3.00 }, {})
-
-puts order.products
