@@ -7,7 +7,7 @@ require_relative '../lib/order'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-# TODO: change 'xdescribe' to 'describe' to run these tests
+
 describe "Order Wave 1" do
   let(:customer) do
     address = {

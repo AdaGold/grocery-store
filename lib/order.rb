@@ -21,6 +21,7 @@ class Order
       raise ArgumentError.new("#{fulfillment_status} is not a valid option.")
     end
   end 
+  # 
   
   # calculate the total cost of an order and
   
