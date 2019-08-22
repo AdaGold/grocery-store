@@ -64,12 +64,12 @@ describe "Order Wave 1" do
   end
   
   # TODO: change 'xdescribe' to 'describe' to run these tests
-  xdescribe "#total" do
+  describe "#total" do
     it "Returns the total from the collection of products" do
       products = { "banana" => 1.99, "cracker" => 3.00 }
       order = Order.new(1337, products, customer)
       
-      expected_total = 5.36
+      expected_total = 4.99
       
       expect(order.total).must_equal expected_total
     end
@@ -82,7 +82,7 @@ describe "Order Wave 1" do
   end
   
   # TODO: change 'xdescribe' to 'describe' to run these tests
-  xdescribe "#add_product" do
+  describe "#add_product" do
     it "Increases the number of products" do
       products = { "banana" => 1.99, "cracker" => 3.00 }
       before_count = products.count
