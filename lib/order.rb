@@ -35,14 +35,13 @@ class Order
     return products
     end
   end
+
   
-  # str = "Iceberg lettuce:88.51;Rice paper:66.35;Amaranth:1.5;Walnut:65.26"
   def self.product_hash_flatten(str)
     split_str = str.split(';')
     split_str.map! do |el|
       el.split(':')
     end
-    # create hash :name => price
     product_hash = {}
     split_str.each do|product|
       product_hash[product[0]] = product[1].to_f
@@ -50,9 +49,6 @@ class Order
     return product_hash
   end
 
-
-# self.all - returns a collection of Order instances, representing all of the Orders described in the CSV file
- 
   def self.all
     orders = []
     CSV.read('./data/orders.csv').each do |order|
@@ -62,7 +58,6 @@ class Order
     return orders 
   end
 
-  
   def self.find(id)
     Order.all.each do |order|
       if order.id == id
@@ -71,9 +66,4 @@ class Order
     end
     return nil
   end
-
 end
-
-
-#   ap order
-# end
